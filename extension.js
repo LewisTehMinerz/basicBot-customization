@@ -32,15 +32,15 @@
 
          */
 
-        bot.commands.baconCommand = {
-            command: 'bacon',  //The command to be called. With the standard command literal this would be: !bacon
+        bot.commands.ipCommand = {
+            command: 'ip',  //The command to be called. With the standard command literal this would be: !bacon
             rank: 'user', //Minimum user permission to use the command
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
             functionality: function (chat, cmd) {
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    API.sendChat("/me Bacon!!!");
+                    API.sendChat("/me The ip keeps changing... Sorry!");
                 }
             }
         };
@@ -53,7 +53,7 @@
     //Change the bots default settings and make sure they are loaded on launch
 
     localStorage.setItem("basicBotsettings", JSON.stringify({
-        botName: "basicBot",
+        botName: "AlCraftBot",
         language: "english",
         chatLink: "https://rawgit.com/Yemasthui/basicBot/master/lang/en.json",
         maximumAfk: 120,
@@ -72,19 +72,15 @@
         usercommandsEnabled: true,
         lockskipPosition: 3,
         lockskipReasons: [
-            ["theme", "This song does not fit the room theme. "],
             ["op", "This song is on the OP list. "],
-            ["history", "This song is in the history. "],
-            ["mix", "You played a mix, which is against the rules. "],
             ["sound", "The song you played had bad sound quality or no sound. "],
-            ["nsfw", "The song you contained was NSFW (image or sound). "],
             ["unavailable", "The song you played was not available for some users. "]
         ],
         afkpositionCheck: 15,
         afkRankCheck: "ambassador",
         motdEnabled: false,
         motdInterval: 5,
-        motd: "Temporary Message of the Day",
+        motd: "This is AlCraft Official Plug.dj!",
         filterChat: true,
         etaRestriction: false,
         welcome: true,
@@ -99,8 +95,7 @@
         songstats: true,
         commandLiteral: "!",
         blacklists: {
-            NSFW: "https://rawgit.com/Yemasthui/basicBot-customization/master/blacklists/ExampleNSFWlist.json",
-            OP: "https://rawgit.com/Yemasthui/basicBot-customization/master/blacklists/ExampleOPlist.json"
+           
         }
     }));
 
