@@ -44,6 +44,19 @@
                 }
             }
         };
+        bot.commands.skipCommand = {
+            command: 'skip',
+            rank: 'user',
+            type: 'exact',
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    API.sendChat("/me Please do not ask for skips.");
+                }
+            }
+        };
+        
 
         //Load the chat package again to account for any changes
         bot.loadChat();
